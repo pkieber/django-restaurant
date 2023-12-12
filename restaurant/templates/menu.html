@@ -5,6 +5,7 @@
 <!--Begin col-->
 <div class="column">
    <!-- Step 14: Create for loop -->
+   {% for item in menu %} 
    <p>
       <!-- Step 14: Add DTL variable for name -->
       {% if item.pk %}
@@ -19,7 +20,8 @@
          {{ item.price }}
       </span>
    </p>
-   <!-- Step 14: End or loop -->
+   {% endfor %}
+   <!-- Step 14: End of loop -->
 </div>
 <!--End col-->
 {% endblock %}

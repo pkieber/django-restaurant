@@ -22,7 +22,7 @@ def book(request):
 
 # Add your code here to create new views
 def menu(request):
-    menu_data = Menu.objects.all()
+    menu_data = Menu.objects.all().order_by('name')
     
     main_data = {
         "menu": menu_data
