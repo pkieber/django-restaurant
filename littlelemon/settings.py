@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # The settings for app updated for the Graded assessment
+    'restaurant',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,8 @@ ROOT_URLCONF = "littlelemon.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # The settings for templates updated for the Graded assessment
+        'DIRS': ['restaurant/templates' ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,6 +83,8 @@ DATABASES = {
     }
 }
 
+# The settings for media files have been updated for the Graded assessment
+MEDIA_URL = '/media/'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -109,7 +114,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+# The settings for static files have been updated for the Graded assessment
+STATIC_URL = "restaurant/static/"
+
+STATICFILES_DIRS = [
+    "restaurant/static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
