@@ -23,11 +23,25 @@ def book(request):
 # Add your code here to create new views
 def menu(request):
     menu_data = Menu.objects.all()
-    main_data = {"menu": menu_data}
+    
+    main_data = {
+        "menu": menu_data
+    }
+
     return render(request, 'menu.html', main_data)
 
 
-def menu_item(request, pk):
-    item = get_object_or_404(Menu, pk=pk)
-    context = {'item': item}
+def display_menu_items(request, pk=None):
+    menu_item = ""
+
+    if pk is not None:
+        try:
+            menu_item = Menu.objects.get(pk=pk)
+        except Menu.DoesNotExist:
+            pass
+
+    context = {
+        'menu_item': menu_item,
+    }
+
     return render(request, 'menu_item.html', context)
