@@ -1,8 +1,6 @@
 # from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import BookingForm
-from .models import Menu
-
 
 
 # Create your views here.
@@ -22,3 +20,5 @@ def book(request):
     return render(request, 'book.html', context)
 
 # Add your code here to create new views
+def menu(request):
+    return render(request, 'menu.html')
