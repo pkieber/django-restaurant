@@ -1,6 +1,7 @@
 # from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import BookingForm
+from .models import Menu
 
 
 # Create your views here.
@@ -21,4 +22,12 @@ def book(request):
 
 # Add your code here to create new views
 def menu(request):
-    return render(request, 'menu.html')
+    menu_data = Menu.objects.all()
+    main_data = {"menu": menu_data}
+    return render(request, 'menu.html', main_data)
+
+
+def menu_item(request, pk):
+    item = get_object_or_404(Menu, pk=pk)
+    context = {'item': item}
+    return render(request, 'menu_item.html', context)
